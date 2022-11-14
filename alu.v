@@ -22,3 +22,13 @@ module arthmetic_unit(
 
 endmodule
 
+module logic_unit(
+	output O,
+	input A, B,
+	input [1: 0] S
+);
+
+	mux_4x1 MUX (O, A & B, A | B, A ^ B, ~A, S);
+
+endmodule
+
