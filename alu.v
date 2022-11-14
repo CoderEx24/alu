@@ -32,3 +32,16 @@ module logic_unit(
 
 endmodule
 
+module shift_unit(
+	output [3: 0] H,
+	input  [3: 0] A,
+	input right, left,
+	input S
+);
+	mux_2x1 MUX1 (H[0], right, A[1], S),
+		MUX2 (H[1], A[0],  A[2], S),
+		MUX3 (H[2], A[1],  A[3], S),
+		MUX4 (H[3], A[2],  left, S);
+
+endmodule
+
