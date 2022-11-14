@@ -1,3 +1,12 @@
+module mux_2x1(
+	output O,
+	input i1, i2,
+	input S
+);
+
+	assign O = (i1 && !S) || (i2 && S);
+endmodule
+
 module mux_4x1(output O, 
 	input i1, i2, i3, i4,
 	input [1: 0] S
