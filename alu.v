@@ -16,9 +16,9 @@ module arthmetic_unit(
 	mux_4x1 M4 (D[3], B[3], !B[3], 1'b0, 1'b1, S);
 
 	full_adder FA1 (D[0], C1,    A[0], D[0], C_in);
-	full_adder FA1 (D[1], C2,    A[1], D[1], C1);
-	full_adder FA1 (D[2], C3,    A[2], D[2], C2);
-	full_adder FA1 (D[3], C_out, A[3], D[3], C3);
+	full_adder FA2 (D[1], C2,    A[1], D[1], C1);
+	full_adder FA3 (D[2], C3,    A[2], D[2], C2);
+	full_adder FA4 (D[3], C_out, A[3], D[3], C3);
 
 endmodule
 
