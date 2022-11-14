@@ -1,6 +1,6 @@
 `include "./basics.v"
 
-module arthimatic_unit(
+module arthmetic_unit(
 	output [3: 0] D,
 	output C_out,
 	input [3: 0] A, B,
