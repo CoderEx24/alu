@@ -9,10 +9,13 @@ module t_mux_4x1;
 	initial #100000 $finish;
 
 	initial begin
-		data = 6'b000000;
-		#1 $monitor("-------Input-------|---Selector---|-O-");
-		repeat (63) #1 $monitor("%b | %b | %b", data[5: 2], data[1: 0], O);
-		repeat (63) #1 data = data + 1;
+		data = 6'b0;
+		#1 repeat (63) #1 data += 1;
+	end
+
+	initial begin
+		$monitor("-------Input-------|---Selector---|-O-");
+		#1 repeat (63) $monitor("%b | %b | %b", data[5: 2], data[1: 0], O);
 	end
 
 endmodule
