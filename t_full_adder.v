@@ -9,10 +9,13 @@ module t_full_adder;
 	initial #1000 $finish;
 
 	initial begin
+		in = 3'b0;
+		#1 repeat (7) #1 in += 1;
+	end
+
+	initial begin
 		$monitor(" xyz | S | C ");
-		#10 in = 3'b000;
-		repeat (8) #10 $monitor(" %b | %b | %b ", in, S, C);
-		repeat (8) #10 in += 1;
+		repeat (7) #1 $monitor(" %b | %b | %b ", in, S, C);
 
 	end
 
