@@ -9,10 +9,13 @@ module t_half_adder;
 	initial #1000 $finish;
 
 	initial begin
+		t_in = 2'b0;
+		#1 repeat (3) #1 t_in += 1;
+	end
+
+	initial begin
 		$monitor(" S | C | xy ");
-		t_in = 2'b00;
-		repeat (4) #10 $monitor(" %b | %b | %b ", t_S, t_C, t_in);
-		repeat (4) #10 t_in = t_in + 1;
+		repeat (3) #1 $monitor(" %b | %b | %b ", t_S, t_C, t_in);
 	end
 endmodule
 
