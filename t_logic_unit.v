@@ -9,10 +9,13 @@ module t_logic_unit;
 	initial #1000 $finish;
 
 	initial begin
+		in = 3'b0;
+		#1 repeat (15) #1 in += 1;
+	end
+
+	initial begin
 		$monitor(" -A- | -B- | --S-- | -O- ");
-		#10 in = 4'b0;
-		repeat (15) #10 $monitor(" %b | %b | %b | %b ", in[3], in[2], in[1: 0], O);
-		repeat (15) #10 in += 1;
+		repeat (15) #1 $monitor(" %b | %b | %b | %b ", in[3], in[2], in[1: 0], O);
 	end
 
 endmodule
