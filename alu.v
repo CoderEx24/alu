@@ -45,3 +45,24 @@ module shift_unit(
 
 endmodule
 
+module alu(
+	output [3: 0] O,
+	output C_out,
+	input [3: 0] A, B, S,
+	input A_l, A_r, C_in
+);
+	wire [3: 0] r_arth;
+	wire [3: 0] r_logic;
+
+	arthmetic_unit AU (r_arth, C_out, A, B, S[1: 0], C_in);
+
+	logic_unit LU1 (r_logic[0], A[0], B[0], S[1: 0]),
+		   LU2 (r_logic[1], A[1], B[1], S[1: 0]),
+		   LU3 (r_logic[2], A[2], B[2], S[1: 0]),
+		   LU4 (r_logic[3], A[3], B[3], S[1: 0]);
+
+	mux_4x1 MUX1 (O[0], r_arth[0], r_logic[0], A[1], A_r , S[3: 2]),
+		MUX2 (O[1], r_arth[1], r_logic[1], A[2], A[0], S[3: 2]),
+		MUX3 (O[2], r_arth[2], r_logic[2], A[3], A[1], S[3: 2]),
+		MUX4 (O[3], r_arth[3], r_logic[3], A_l , A[2], S[3: 2]);
+endmodule
